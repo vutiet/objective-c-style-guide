@@ -215,6 +215,46 @@ Instance variables should be camel-case with the leading word being lowercase, a
 id varnm;
 ```
 
+#### Variable Names: Indication Type
+
+A variable name does not indicate the type if it is something common like NSString, NSArray, NSNumber, NSInterger, or BOOL
+
+**For example:**
+
+```objc
+NSString *username;
+NSMutableArray *addresses;
+NSArray *defauleHeaders;
+BOOL *isChecked;
+```
+
+**Not:**
+
+```objc
+NSString *usernameString;
+NSMutableArray *addressMutableArray;
+NSArray *defauleHeaderArray;
+BOOL *isCheckedBOOL;
+```
+
+If a variable is not one of these types, the name should reflect it. Also, there are certain classes that you only need one instance of. In this case, just name the variable based on the class name. Font manager is a good example of this.
+
+**For example:**
+
+```objc
+NSImage *previewImage; // self-explanatory
+NSProgressIndicator * uploadIndicator;   // shows progress for uploads 
+NSFontManager       * fontManager;       // only one of these, basic name ok  
+```
+
+In most cases, a plural (such as addresses) implies an NSArray or NSSet. There's no need to say "mutable" in the name.
+If a plural is not an NSArray or NSSet, it might make sense to specify this:
+
+```objc
+NSDictionary * issueDictionary; 
+NSIndexSet   * selectedArticlesIndexSet; 
+```
+
 ## Comments
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
